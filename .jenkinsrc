@@ -1,0 +1,12 @@
+{
+  "replace": {
+    "DOMAIN_RESERVED": {
+      "dev": "//printres.jiuyan.info/printer-dev",
+      "dev2": "//printres.jiuyan.info/printer-dev2",
+      "QA": "//qares.jiuyan.info/printer",
+      "QA2": "//printres.jiuyan.info/printer-qa2",
+      "webtest": "//mres.jiuyan.info/printer",
+      "online": "//mres.jiuyan.info/printer"
+    }
+  }
+}
