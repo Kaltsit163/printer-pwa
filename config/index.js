@@ -2,6 +2,7 @@
 
 // see http://vuejs-templates.github.io/webpack for documentation.
 const path = require('path')
+const mockRouter = require('../src/mock/index')
 
 module.exports = {
   build: {
@@ -24,6 +25,7 @@ module.exports = {
     bundleAnalyzerReport: process.env.npm_config_report
   },
   dev: {
+    autoOpenBrowser: true,
     env: require('./dev.env'),
     port: 8080,
     autoOpenBrowser: true,
@@ -35,6 +37,12 @@ module.exports = {
     // (https://github.com/webpack/css-loader#sourcemaps)
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
-    cssSourceMap: false
+    cssSourceMap: false,
+    before: (app) => {
+      alert(1)
+      app.use('/', mockRouter)
+      // jsonServer(app)
+      // 不能在这里使用中间件，对于json-server而言，它就是真的开了一个server会顶掉dev-server
+    }
   }
 }

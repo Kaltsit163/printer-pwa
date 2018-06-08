@@ -18,6 +18,7 @@
   </section>
 </template>
 <script>
+import axios from 'axios'
 export default {
   name: 'DingDing',
   data () {
@@ -67,11 +68,19 @@ export default {
       }]
     }
   },
+  mounted () {
+    this.getData()
+  },
   methods: {
     jumpTo (link) {
       if (link && link.length > 0) {
         window.location.href = link
       }
+    },
+    getData () {
+      axios.get('/mycoupon/list').then(res => {
+        console.info(res)
+      })
     }
   }
 }

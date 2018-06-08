@@ -1,6 +1,9 @@
 const Mock = require('mockjs')
-const fs = require('fs') // 引入文件系统模块
-const path = require('path') // 引入path模块
+const fs = require('fs')
+const path = require('path')
+const express = require('express')
+
+alert(1)
 
 const util = {
   getJsonFile: (filePath) => {
@@ -10,10 +13,10 @@ const util = {
 }
 
 // 返回一个函数
-module.exports = (app) => {
+module.exports = (app = express.Router()) => {
   // 监听http请求
-  app.get('/user/userinfo', (rep, res) => {
-    const json = util.getJsonFile('./userInfo.json')
+  app.get('/mycoupon/list', (rep, res) => {
+    const json = util.getJsonFile('./coupon/list.json')
     res.json(Mock.mock(json))
   })
 }
